@@ -14,10 +14,10 @@ you can improve the code by scheduling it to run every week, this will help you 
   * requests
   * HTMLParser
   * os
-  
+
 ```
 use pip to install these packages
-'''
+```
 
 ## How it works
 * Get Billboard Hot 100 songs from [here](http://www.billboard.com/charts/hot-100)
