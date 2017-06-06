@@ -35,7 +35,7 @@ for article in billboard.findAll('article'):
         if "Featuring" in artist:
             artist = artist.split("Featuring")[0]
         html_parser = HTMLParser()
-        song = html_parser.unescape((song_name+' '+artist))        
+        song = html_parser.unescape((song_name+' '+artist+ ' '+'lyrics'))        
         songs_list.append(song)
         try:
             conn.execute("INSERT INTO bilboard_list (Song_title) VALUES (?);", (song,))
