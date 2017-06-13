@@ -25,6 +25,14 @@ pip install youtube_dl
 
 ```
 
+
+```
+run
+python billboards_songs_downloader.py
+
+```
+
+
 ## How it works
 * Source: [Billboard Hot 100 songs](http://www.billboard.com/charts/hot-100)
 * Store song titles in database for future references
