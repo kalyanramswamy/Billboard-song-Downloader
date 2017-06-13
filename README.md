@@ -26,7 +26,7 @@ pip install youtube_dl
 ```
 
 ## How it works
-* Source: Billboard Hot 100 songs from [here](http://www.billboard.com/charts/hot-100)
+* Source: [Billboard Hot 100 songs](http://www.billboard.com/charts/hot-100)
 * Store song titles in database for future references
 * Get song url for youtube
 * Using youtube_dl download mp3
