@@ -7,7 +7,7 @@ import sqlite3
 import os
 
 # directory to download songs
-downloadDir = "/home/kalyan/bilboards"
+downloadDir = "/home/janarthanan/songs"
 
 url = 'http://www.billboard.com/charts/hot-100'
 response = requests.get(url)
@@ -17,15 +17,16 @@ songs_list = []
 conn = sqlite3.connect('BILBOARDS.db')
 
 # Create Table bilboard_list
-# try:
-#     conn.execute('''CREATE TABLE bilboard_list
-#            (ID INTEGER PRIMARY KEY   AUTOINCREMENT,
-#            Song_title    TEXT    UNIQUE,
-#            download_status  INT     default 0,
-#            download_url TEXT);''')
-#     print "Table created successfully";
-# except Exception as e:
-#     raise e
+
+try:
+    conn.execute('''CREATE TABLE bilboard_list
+           (ID INTEGER PRIMARY KEY   AUTOINCREMENT,
+           Song_title    TEXT    UNIQUE,
+           download_status  INT     default 0,
+           download_url TEXT);''')
+    print "Table created successfully";
+except Exception as e:
+    print("table exist in database")
 
 billboard = BeautifulSoup(html)
 for article in billboard.findAll('article'):

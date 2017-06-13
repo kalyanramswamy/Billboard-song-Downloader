@@ -8,19 +8,25 @@ you can improve the code by scheduling it to run every week, this will help you 
 
 ### Requirements
 * Python 2.7
-* Sqlite 3
 * packages required
-  * BeautifulSoup
+  * Sqlite 3
+  * BeautifulSoup 3.2
+  * youtube_dl
   * requests
   * HTMLParser
   * os
 
 ```
 use pip to install these packages
+
+pip install sqlite3
+pip install beautifulsoup
+pip install youtube_dl
+
 ```
 
 ## How it works
-* Get Billboard Hot 100 songs from [here](http://www.billboard.com/charts/hot-100)
-* store song titles in database for future references
-* get song official url for youtube
-* using youtube_dl download mp3
+* Source: Billboard Hot 100 songs from [here](http://www.billboard.com/charts/hot-100)
+* Store song titles in database for future references
+* Get song url for youtube
+* Using youtube_dl download mp3
