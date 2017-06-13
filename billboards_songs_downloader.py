@@ -7,7 +7,7 @@ import sqlite3
 import os
 
 # directory to download songs
-downloadDir = "/home/janarthanan/songs"
+downloadDir = "/home/kalyan/songs"
 
 url = 'http://www.billboard.com/charts/hot-100'
 response = requests.get(url)
