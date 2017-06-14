@@ -7,7 +7,7 @@ import sqlite3
 import os
 
 # directory to download songs
-downloadDir = "/home/kalyan/songs"
+downloadDir = "/home/janarthanan/songs"
 
 url = 'http://www.billboard.com/charts/hot-100'
 response = requests.get(url)
@@ -36,15 +36,16 @@ for article in billboard.findAll('article'):
         if "Featuring" in artist:
             artist = artist.split("Featuring")[0]
         html_parser = HTMLParser()
-        song = html_parser.unescape((song_name+' '+artist+ ' '+'lyrics'))        
+        song = html_parser.unescape((song_name+' '+artist+ ' '+'lyrics'))
         songs_list.append(song)
         try:
             conn.execute("INSERT INTO bilboard_list (Song_title) VALUES (?);", (song,))
             conn.commit()
+            print("new song")
         except Exception as e:
-            print("song already in list")      
+            e=0
     except Exception as e:
-        print "---not a song article---"
+        e=0
 
 # get song url from youtube
 def search_youtube(name):
@@ -63,6 +64,7 @@ def search_youtube(name):
 
 # store youtube video url in database
 songs = conn.execute("SELECT id, song_title from bilboard_list where download_url is null")
+print(str(len(songs.fetchall()))+ " new songs")
 for row in songs:
     try:
         download_url = search_youtube(row[1])
