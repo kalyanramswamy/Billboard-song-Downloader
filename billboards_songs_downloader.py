@@ -15,6 +15,7 @@ html = response.content
 
 songs_list = []
 conn = sqlite3.connect('BILBOARDS.db')
+e = 0
 
 # Create Table bilboard_list
 
@@ -41,11 +42,10 @@ for article in billboard.findAll('article'):
         try:
             conn.execute("INSERT INTO bilboard_list (Song_title) VALUES (?);", (song,))
             conn.commit()
-            print("new song")
         except Exception as e:
-            e=0
+            e = 1
     except Exception as e:
-        e=0
+        e = 1
 
 # get song url from youtube
 def search_youtube(name):
@@ -64,7 +64,6 @@ def search_youtube(name):
 
 # store youtube video url in database
 songs = conn.execute("SELECT id, song_title from bilboard_list where download_url is null")
-print(str(len(songs.fetchall()))+ " new songs")
 for row in songs:
     try:
         download_url = search_youtube(row[1])
@@ -97,6 +96,5 @@ for row in download_list:
         conn.commit()
     except Exception as e:
         print("fail to download")
-
 
 conn.close()
