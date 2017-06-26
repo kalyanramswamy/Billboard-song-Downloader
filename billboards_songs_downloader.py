@@ -7,7 +7,7 @@ import sqlite3
 import os
 
 # directory to download songs
-downloadDir = "/home/janarthanan/songs"
+downloadDir = "/home/kalyan/songs"
 
 url = 'http://www.billboard.com/charts/hot-100'
 response = requests.get(url)
@@ -15,7 +15,6 @@ html = response.content
 
 songs_list = []
 conn = sqlite3.connect('BILBOARDS.db')
-e = 0
 
 # Create Table bilboard_list
 
@@ -43,9 +42,9 @@ for article in billboard.findAll('article'):
             conn.execute("INSERT INTO bilboard_list (Song_title) VALUES (?);", (song,))
             conn.commit()
         except Exception as e:
-            e = 1
+            print("song already in list")
     except Exception as e:
-        e = 1
+        print "---not a song article---"
 
 # get song url from youtube
 def search_youtube(name):
@@ -96,5 +95,6 @@ for row in download_list:
         conn.commit()
     except Exception as e:
         print("fail to download")
+
 
 conn.close()
