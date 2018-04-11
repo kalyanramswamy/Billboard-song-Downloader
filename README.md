@@ -33,7 +33,6 @@ python billboards_songs_downloader.py
 
 
 ## How it works
-* Source: [Billboard Hot 100 songs](http://www.billboard.com/charts/hot-100)
-* Store song titles from Billboard Hot 100 in database for future references
-* Gets song url for youtube
-* Using youtube_dl download mp3
+* scraping [Billboard Hot 100 songs](http://www.billboard.com/charts/hot-100) titles.
+* download new songs from youtube using youtube_dl
+* also change url to any other page in Billboards to download songs.
