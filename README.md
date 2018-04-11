@@ -33,6 +33,5 @@ python billboards_songs_downloader.py
 
 
 ## How it works
-* scraping [Billboard Hot 100 songs](http://www.billboard.com/charts/hot-100) titles.
-* download new songs from youtube using youtube_dl
-* also change url to any other page in Billboards to download songs.
+* scrape [Billboard Hot 100 songs](http://www.billboard.com/charts/hot-100) titles.
+* then download songs from youtube using youtube_dl
